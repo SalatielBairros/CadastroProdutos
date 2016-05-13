@@ -1,0 +1,22 @@
+﻿@model CadastroProdutos.Models.FiltroProduto
+
+@using (Html.BeginForm("Filtrar", "Produto"))
+{
+    @Html.AntiForgeryToken()
+    <div class="filtro">
+        <div class="form-group">
+            <div class="col-md-3">
+                @Html.LabelFor(x => x.Nome)
+                @Html.TextBoxFor(x => x.Nome, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(x => x.Tipo)
+                @Html.TextBoxFor(x => x.Tipo, new { @class = "form-control" })
+            </div>
+            <div class="col-md-1 btn-filtro">
+                <label>&nbsp;</label>
+                <input type="submit" value="Filtrar" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}

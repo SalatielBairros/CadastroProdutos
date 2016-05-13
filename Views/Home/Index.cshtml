@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Cadastro Produtos - Senha";
+    Layout = "~/Views/_LayoutPageExternal.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="alert alert-info alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        Mesmo sem estar logado é possível ter acesso a listagem dos produtos. Basta clicar no botão
+        <strong>Listagem</strong>.
+    </div>
+
+    @Html.AntiForgeryToken()
+
+    if (ViewBag.ErrorMessage != null && (!string.IsNullOrEmpty(ViewBag.ErrorMessage.ToString())))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="password-box">
+        <label>Senha</label>
+        <input type="password" id="iSenha" placeholder="Senha" class="form-control" name="password" />
+        <input type="submit" id="btnEnviar" class="btn btn-default" value="Enviar" />
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").keypress(function (e) {
+            var kCode = e.keyCode || e.charCode;
+            if (kCode === 13) {
+                $("#btnEnviar").click();
+            }
+        });
+    });
+</script>

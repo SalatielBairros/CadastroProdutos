@@ -1,0 +1,45 @@
+﻿.password-box {
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    right: 40%;
+    border: 1px solid #c4c0c0;
+    border-radius: 10px;
+    height: 150px;
+    width: 300px;
+    padding: 30px;
+}
+
+    .password-box label {
+        display: block;
+    }
+
+.d_none {
+    display: none !important;
+}
+
+div.filtro {
+    min-height: 70px;
+}
+
+@media (max-width: 992px) {
+    .btn-filtro {
+        padding: 10px 15px;
+    }
+
+        .btn-filtro input {
+            float: right;
+        }
+
+    .password-box {
+        position: inherit;
+        width: 295px;
+    }
+}
+
+@media (max-width: 500px) {
+    .password-box {
+        position: inherit;
+        width: 100%;
+    }
+}

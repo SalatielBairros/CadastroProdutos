@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CadastroProdutos.Models.Produto>
+
+@{
+    ViewBag.Title = "Listagem Produtos";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2>Lista Produtos</h2>
+
+@Html.Partial("_FiltroProduto", CadastroProdutos.Models.FiltroProduto.Instancia)
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Codigo }) |
+                    <a href="#" onclick="@string.Concat("ExcluirItem('", item.Codigo, "','/Produto/Delete/',this);")">Excluir</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
