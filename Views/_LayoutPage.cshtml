@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/custom.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico?v=1.1"> 
 </head>
 <body>
     <div>
@@ -29,6 +30,10 @@
                         <li id="liCadastro"><a href="/Produto/Create">Cadastro</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/1q21TNBXvkLQU9Pa7vCbalaZh1QqsXMpwEJcERCJ_DfM/edit?usp=sharing"
+                               target="_blank">Tutorial</a>
+                        </li>
                         <li><a href="/Home/Logout">Sair</a></li>
                     </ul>
                 </div>
@@ -44,14 +49,10 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/jquery.validate.globalize.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.globalize.min.js"></script>*@
     <script type="text/javascript">
-        //Globalize.cultureSelector = 'pt-BR';
-
-        $("nav").removeClass("d_none");
-        if (window.location.pathname === "/Home/Index" || window.location.pathname === "/Home" || window.location.pathname === "/") {
-            $("nav").addClass("d_none");
-        } else if (window.location.pathname === "/Produto" || window.location.pathname === "/Produto/Index") {
+        if (window.location.pathname === "/Produto" || window.location.pathname === "/Produto/Index"
+            || window.location.pathname === "/Produto/Filtrar") {
             $("#liListagem").addClass("active");
             $("#liCadastro").removeClass("active");
         } else {

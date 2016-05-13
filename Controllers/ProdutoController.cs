@@ -33,13 +33,20 @@ namespace CadastroProdutos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Codigo,Nome,Tipo,Estoque,Valor")] Produto produto)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Produtoes.Add(produto);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Produtoes.Add(produto);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
 
+            }
+            catch
+            {
+                ViewBag.Error = "Não foi possível salvar o registro. Verifique os dados e tente novamente.";
+            }
             return View(produto);
         }
 

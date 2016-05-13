@@ -11,8 +11,15 @@
 
     <div class="form-horizontal">
         <h4>Cadastro Produto</h4>
-        @Html.ActionLink("Voltar para a Lista", "Index")
         <hr />
+
+        @if (ViewBag.Error != null && !string.IsNullOrEmpty(ViewBag.Error.ToString()))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.Error.ToString()
+            </div>
+        }
+
         @Html.ValidationSummary(true)
 
         <div class="form-group">
